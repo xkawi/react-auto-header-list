@@ -18,11 +18,11 @@
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
     "gulp": "^3.9.1",
-    "react-component-gulp-tasks": "^0.7.6"
+    "react-component-gulp-tasks": "^0.7.6",
+    "react-dom": "^0.14.0 || ^15.2.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.2.0",
-    "react-dom": "^0.14.0 || ^15.2.0"
+    "react": "^0.14.0 || ^15.2.0"
   },
   "browserify-shim": {
     "react": "global:React"
@@ -39,6 +39,10 @@
   },
   "keywords": [
     "react",
-    "react-component"
-  ]
+    "react-component",
+    "list",
+    "section-header",
+    "react-auto-header-list"
+  ],
+  "license": "ISC"
 }

@@ -1,6 +1,7 @@
 # ReactAutoHeaderList
 
 Automatically create and render a list of items with headers to categories them into section. You can think of it like the React version of iOS TableView with section header.
+ReactAutoHeaderList has zero dependencies, it only has peerDependencies for react.
 
 ## Demo & Examples
 
@@ -79,10 +80,11 @@ To build, watch and serve the examples (which will also watch the component sour
 - replace 'load more' button with load data on scroll mechanism
 - optimise rendering by only rendering views within the visible range of the viewport
 - allow options to disable header
+- replace or remove gulp with webpack or npm script
 
 ## License
 
-MIT
+ISC
 
 Copyright (c) 2016 Kawi Xiao.
 
