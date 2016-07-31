@@ -217,7 +217,7 @@ ReactAutoHeaderList.propTypes = {
     isFetching: _react.PropTypes.bool.isRequired,
     items: _react.PropTypes.array.isRequired,
     loadingLabel: _react.PropTypes.string,
-    onLoadMore: _react.PropTypes.func.isRequired,
+    onLoadMore: _react.PropTypes.func,
     totalItemCount: _react.PropTypes.number.isRequired,
     renderEmptyView: _react.PropTypes.func,
     renderHeader: _react.PropTypes.func,
@@ -227,8 +227,13 @@ ReactAutoHeaderList.propTypes = {
 };
 
 ReactAutoHeaderList.defaultProps = {
-    isFetching: true,
+    isFetching: false,
     loadingLabel: 'Loading...',
+    totalItemCount: 0,
+    items: [],
+    onLoadMore: function onLoadMore() {
+        return null;
+    },
     renderItem: function renderItem(item) {
         return _react2['default'].createElement(
             'div',
@@ -248,7 +253,7 @@ ReactAutoHeaderList.defaultProps = {
         );
     },
     getSectionHeaderTitle: function getSectionHeaderTitle(item) {
-        return item.name[0] || '#';
+        return '#';
     },
     renderLoadingView: function renderLoadingView(loadingLabel) {
         return _react2['default'].createElement(
