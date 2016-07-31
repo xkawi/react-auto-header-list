@@ -25,7 +25,7 @@ class ReactAutoHeaderList extends Component {
             const newItems = this.arraysDifference(nextProps.items, this.props.items, (a, b) => {
                 return this.objectEquals(a, b);
             });
-			const isNewList = (nextProps.totalItemCount !== this.props.totalItemCount);
+            const isNewList = (nextProps.totalItemCount !== this.props.totalItemCount);
             this.transformItems(newItems, isNewList);
         }
     }
@@ -35,7 +35,7 @@ class ReactAutoHeaderList extends Component {
             return false;
         }
         for (let i = arr1.length; i--;) {
-            if (!this.objectEquals(arr1[i], arr2[i])){
+            if (!this.objectEquals(arr1[i], arr2[i])) {
                 return false;
             }
         }
@@ -88,14 +88,8 @@ class ReactAutoHeaderList extends Component {
         }
     }
 
-
-	/**
-     * transform data/items array from this [{},{}] to this {'header1': [{},{}]}
-     * items: array of data/object
-     * isNewList: flag to indicate whether reset the list (true) or keep adding to existing records
-     */
     transformItems(items, isNewList) {
-		let transformed = isNewList ? {} : this.state.transformedData;
+        let transformed = isNewList ? {} : this.state.transformedData;
         items.forEach((item) => {
             const sectionHeaderTitle = this.props.getSectionHeaderTitle(item);
             if (!transformed[sectionHeaderTitle]) {
@@ -155,13 +149,13 @@ ReactAutoHeaderList.propTypes = {
     isFetching: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,
     loadingLabel: PropTypes.string,
-    onLoadMore: PropTypes.func, 
+    onLoadMore: PropTypes.func,
     totalItemCount: PropTypes.number.isRequired,
     renderEmptyView: PropTypes.func,
     renderHeader: PropTypes.func,
     renderItem: PropTypes.func.isRequired,
     renderLoadingView: PropTypes.func,
-    renderLoadMoreButton: PropTypes.func    
+    renderLoadMoreButton: PropTypes.func
 };
 
 ReactAutoHeaderList.defaultProps = {
@@ -172,27 +166,35 @@ ReactAutoHeaderList.defaultProps = {
     onLoadMore: () => {
         return null;
     },
-    renderItem: (item) => {
-        return (<div><pre>{JSON.stringify(item, null, 2) }</pre></div>);
+    renderItem: (item, key) => {
+        return (
+            <div key={key}>
+                <pre>{JSON.stringify(item, null, 2) }</pre>
+            </div>
+        );
     },
-    renderHeader: (sectionHeaderTitle) => {
-        return (<h1>{sectionHeaderTitle}</h1>);
+    renderHeader: (sectionHeaderTitle, key) => {
+        return (
+            <div key={key}>
+                <h1>{sectionHeaderTitle}</h1>
+            </div>
+        );
     },
     getSectionHeaderTitle(item) {
         return '#';
     },
     renderLoadingView: (loadingLabel) => {
         return (
-			<div>
-				<h3>{loadingLabel || 'Loading...'}</h3>
-			</div>
-		);
+            <div>
+                <h3>{loadingLabel || 'Loading...'}</h3>
+            </div>
+        );
     },
     renderLoadMoreButton: (onLoadMore, isFetching) => {
         return (
             <div>
-				<button onClick={onLoadMore}>{isFetching ? 'Load More' : 'Loading...'}</button>
-			</div>
+                <button onClick={onLoadMore}>{isFetching ? 'Load More' : 'Loading...'}</button>
+            </div>
         );
     },
     renderEmptyView: () => {

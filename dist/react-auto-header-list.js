@@ -127,12 +127,6 @@ var ReactAutoHeaderList = (function (_Component) {
                 return v1 === v2;
             }
         }
-
-        /**
-            * transform data/items array from this [{},{}] to this {'header1': [{},{}]}
-            * items: array of data/object
-            * isNewList: flag to indicate whether reset the list (true) or keep adding to existing records
-            */
     }, {
         key: 'transformItems',
         value: function transformItems(items, isNewList) {
@@ -234,10 +228,10 @@ ReactAutoHeaderList.defaultProps = {
     onLoadMore: function onLoadMore() {
         return null;
     },
-    renderItem: function renderItem(item) {
+    renderItem: function renderItem(item, key) {
         return _react2['default'].createElement(
             'div',
-            null,
+            { key: key },
             _react2['default'].createElement(
                 'pre',
                 null,
@@ -245,11 +239,15 @@ ReactAutoHeaderList.defaultProps = {
             )
         );
     },
-    renderHeader: function renderHeader(sectionHeaderTitle) {
+    renderHeader: function renderHeader(sectionHeaderTitle, key) {
         return _react2['default'].createElement(
-            'h1',
-            null,
-            sectionHeaderTitle
+            'div',
+            { key: key },
+            _react2['default'].createElement(
+                'h1',
+                null,
+                sectionHeaderTitle
+            )
         );
     },
     getSectionHeaderTitle: function getSectionHeaderTitle(item) {
