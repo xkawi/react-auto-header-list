@@ -1,9 +1,9 @@
 {
   "name": "react-auto-header-list",
   "version": "1.0.1",
-  "description": "ReactAutoHeaderList",
+  "description": "React List with Section Header",
   "main": "lib/ReactAutoHeaderList.js",
-  "author": "Kawi Xiao",
+  "author": "Kawi Xiao <kawixiao@gmail.com>",
   "homepage": "https://github.com/xkawi/react-auto-header-list",
   "repository": {
     "type": "git",
@@ -40,8 +40,9 @@
   "keywords": [
     "react",
     "react-component",
-    "list",
+    "react-list",
     "section-header",
+    "list-section-header",
     "react-auto-header-list"
   ],
   "license": "ISC"

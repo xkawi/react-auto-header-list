@@ -1,6 +1,6 @@
 # ReactAutoHeaderList
 
-Automatically create and render a list of items with headers to categories them into section. You can think of it like the React version of iOS TableView with section header.
+Automatically create and render a list of items with headers to categorize them into sections/groups. You can think of it like the React version of iOS TableView with section header.
 ReactAutoHeaderList has zero dependencies, it only has peerDependencies for react.
 
 ## Demo & Examples
