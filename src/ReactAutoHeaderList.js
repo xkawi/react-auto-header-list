@@ -155,7 +155,7 @@ ReactAutoHeaderList.propTypes = {
     isFetching: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,
     loadingLabel: PropTypes.string,
-    onLoadMore: PropTypes.func.isRequired, 
+    onLoadMore: PropTypes.func, 
     totalItemCount: PropTypes.number.isRequired,
     renderEmptyView: PropTypes.func,
     renderHeader: PropTypes.func,
@@ -165,8 +165,13 @@ ReactAutoHeaderList.propTypes = {
 };
 
 ReactAutoHeaderList.defaultProps = {
-    isFetching: true,
+    isFetching: false,
     loadingLabel: 'Loading...',
+    totalItemCount: 0,
+    items: [],
+    onLoadMore: () => {
+        return null;
+    },
     renderItem: (item) => {
         return (<div><pre>{JSON.stringify(item, null, 2) }</pre></div>);
     },
@@ -174,7 +179,7 @@ ReactAutoHeaderList.defaultProps = {
         return (<h1>{sectionHeaderTitle}</h1>);
     },
     getSectionHeaderTitle(item) {
-        return item.name[0] || '#';
+        return '#';
     },
     renderLoadingView: (loadingLabel) => {
         return (
