@@ -153,7 +153,7 @@ var ReactAutoHeaderList = (function (_Component) {
 
             return _react2['default'].createElement(
                 'div',
-                { className: 'row', key: reactUniqueKey },
+                { key: reactUniqueKey },
                 renderHeader(sectionHeaderTitle),
                 items.map(renderItem)
             );
@@ -191,12 +191,12 @@ var ReactAutoHeaderList = (function (_Component) {
                 null,
                 _react2['default'].createElement(
                     'div',
-                    { className: 'row' },
+                    null,
                     listContent
                 ),
                 _react2['default'].createElement(
                     'div',
-                    { className: 'row' },
+                    null,
                     totalItemCount > 0 && !isLastPage && this.props.renderLoadMoreButton(onLoadMore, isFetching)
                 )
             );

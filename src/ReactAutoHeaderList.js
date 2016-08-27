@@ -105,7 +105,7 @@ class ReactAutoHeaderList extends Component {
     renderSection(sectionHeaderTitle, items, reactUniqueKey) {
         const { renderHeader, renderItem } = this.props;
         return (
-            <div className="row" key={reactUniqueKey}>
+            <div key={reactUniqueKey}>
                 {renderHeader(sectionHeaderTitle) }
                 {items.map(renderItem) }
             </div>
@@ -133,10 +133,10 @@ class ReactAutoHeaderList extends Component {
 
         return (
             <div>
-                <div className="row">
+                <div>
                     {listContent}
                 </div>
-                <div className="row">
+                <div>
                     {totalItemCount > 0 && !isLastPage && this.props.renderLoadMoreButton(onLoadMore, isFetching) }
                 </div>
             </div>
